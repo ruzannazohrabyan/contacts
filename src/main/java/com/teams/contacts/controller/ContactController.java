@@ -24,4 +24,19 @@ public class ContactController {
     public List<Contact> getAllContacts() {
         return contactServiceImpl.getAll();
     }
+
+    @GetMapping("/{email}")
+    public Contact getContactByEmail(@PathVariable String email) {
+        return contactServiceImpl.getByEmail(email);
+    }
+
+    @DeleteMapping("/{email}")
+    public void deleteContactByEmail(@PathVariable String email) {
+        contactServiceImpl.deleteByEmail(email);
+    }
+
+    @PatchMapping("/{email}")
+    public Contact updateContactEmail(@PathVariable String email, @RequestBody Contact contact) {
+        return contactServiceImpl.updateByEmail(email, contact);
+    }
 }
