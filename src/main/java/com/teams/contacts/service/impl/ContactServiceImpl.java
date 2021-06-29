@@ -77,7 +77,7 @@ public class ContactServiceImpl implements ContactService {
     }
 
     private boolean isEmailValidated(String email) {
-        String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+        String regex = "^[\\\\w!#$%&’*+/=?`{|}~^-]+(?:\\\\.[\\\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,6}$";
         Pattern pattern = Pattern.compile(regex);
         return pattern.matcher(email).matches();
     }
